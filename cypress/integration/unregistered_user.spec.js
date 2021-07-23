@@ -1,7 +1,3 @@
-//const { it } = require("mocha")
-
-//const { it } = require("mocha")
-
 describe('Register and Login Successfully', () => {
     beforeEach(() => {
       cy.visit('/')
@@ -20,7 +16,7 @@ describe('Register and Login Successfully', () => {
 
     })
     
-    it.skip('Add an Item to Cart Functionality', () => {
+    it('Add an Item to Cart Functionality', () => {
 
         cy.get("#categorymenu > nav > ul > li:nth-child(4) > a").click()
         cy.get("#maincontainer > div > div > div > div > ul > li:nth-child(3) > a > img").click()

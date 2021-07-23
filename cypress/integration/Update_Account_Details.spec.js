@@ -10,7 +10,7 @@ describe('TASK2_Registered_Customers', () => {
       cy.get("#loginFrm > fieldset > button").click()
     })
    
-    it.skip('Account Details Update', () => {
+    it('Account Details Update', () => {
     
     cy.get("#maincontainer > div > div.column_right.col-md-3.col-xs-12.mt20 > div.sidewidt > div > ul > li:nth-child(3) > a").click()
     
@@ -35,7 +35,7 @@ describe('TASK2_Registered_Customers', () => {
     
   })
     
-  it.skip('Address Book Update', () => {
+  it('Address Book Update', () => {
     
     cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > ul > li:nth-child(3) > a > i").click()
     cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > div.col-md-12.col-xs-12.pull-right.mt20.mb20 > a.btn.btn-orange.pull-right").click()
@@ -59,7 +59,7 @@ describe('TASK2_Registered_Customers', () => {
     
   })
 
-  it.skip('Old Address Book Delete', () => {
+  it('Old Address Book Delete', () => {
     
     cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > ul > li:nth-child(3) > a > i").click()
     cy.get("button.btn.btn-default").contains("Delete").click()
@@ -67,7 +67,7 @@ describe('TASK2_Registered_Customers', () => {
   
   })
     
-  it.skip("Wishlist Functionality", () => {
+  it("Wishlist Functionality", () => {
     
     cy.get("#categorymenu > nav > ul > li:nth-child(2) > a").click()
     cy.get("#maincontainer > div > div > div > div > ul > li:nth-child(2) > a > img").click()
@@ -87,7 +87,7 @@ describe('TASK2_Registered_Customers', () => {
 
   let Address1
   let Address2
-  it.skip("Purchase Items Functionality",()=>{
+  it("Purchase Items Functionality",()=>{
     
     cy.get("#categorymenu > nav > ul > li:nth-child(3) > a").click()
     cy.get("#maincontainer > div > div > div > div > ul > li:nth-child(1) > a > img").click()

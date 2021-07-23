@@ -208,7 +208,7 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_lastname").should('have.class', 'form-control').type("Lopez")
       
       
-      cy.get("#AccountFrm_email").should('have.class', 'form-control').type("janedoe2@gmail.com")
+      cy.get("#AccountFrm_email").should('have.class', 'form-control').type("janedoeee73680@gmail.com")
 
       cy.get("#AccountFrm_telephone").should('have.class','form-control').type('0712312312')
       cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
@@ -219,7 +219,7 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_postcode").should('have.class','form-control').type("111222")
       cy.get("#AccountFrm_country_id").select("Romania").should("have.value","175")
       cy.get("#AccountFrm_zone_id").select("Suceava").should("have.value","2714")
-      cy.get("#AccountFrm_loginname").should('have.class','form-control').type("janedoetest")
+      cy.get("#AccountFrm_loginname").should('have.class','form-control').type("janedoetest568")
       cy.get("#AccountFrm_password").should('have.class','form-control').type("testinternship")
       cy.get("#AccountFrm_confirm").should('have.class','form-control').type("testinternship")
   
@@ -240,9 +240,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_firstname").should('have.class', 'form-control').type("Jennifer")
       
       cy.get("#AccountFrm_lastname").should('have.class', 'form-control').type("Lopez")
-      
-      
-      //cy.get("#AccountFrm_email").should('have.class', 'form-control').type("jane.doe2@gmail.com")
 
       cy.get("#AccountFrm_telephone").should('have.class','form-control').type('0712312312')
       cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
@@ -273,7 +270,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_firstname").should('have.class', 'form-control').type("Jane")
       cy.get("#AccountFrm_lastname").should('have.class', 'form-control').type("Doe")
       cy.get("#AccountFrm_email").should('have.class', 'form-control').type("janee.doe2@gmail.com")
-      //cy.get("#AccountFrm_telephone").should('have.class','form-control').type('0712312312')
       cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
       
       cy.get("#AccountFrm_company").should('have.class','form-control').type("Intern Test SRL")
@@ -328,7 +324,6 @@ describe('Register Validation', () => {
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
 
-      //cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Email Address does not appear to be valid!")
     })
 
   it('Fax number is not mandatory', () => {
@@ -339,7 +334,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_lastname").should('have.class', 'form-control').type("Doe")
       cy.get("#AccountFrm_email").should('have.class', 'form-control').type("janee.doe2@gmail.com")
       cy.get("#AccountFrm_telephone").should('have.class','form-control').type('0712312312')
-      //cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
       
       cy.get("#AccountFrm_company").should('have.class','form-control').type("Intern Test SRL")
       cy.get("#AccountFrm_address_1").should('have.class','form-control').type("Str SpartanSoft nr 999")
@@ -392,8 +386,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-
-      //cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Email Address does not appear to be valid!")
     })
 
   it('Company Name is not mandatory', () => {
@@ -406,7 +398,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_telephone").should('have.class','form-control').type('0712312312')
       cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
       
-      //cy.get("#AccountFrm_company").should('have.class','form-control').type("Intern Test SRL")
       cy.get("#AccountFrm_address_1").should('have.class','form-control').type("Str SpartanSoft nr 999")
       cy.get("#AccountFrm_address_2").should('have.class','form-control').type("Str Home 10000")
       cy.get("#AccountFrm_city").should('have.class','form-control').type("Suceava")
@@ -494,7 +485,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_fax").should('have.class','form-control').type('0712345678')
       cy.get("#AccountFrm_company").should('have.class','form-control').type("Intern Test SRL")
       cy.get("#AccountFrm_address_1").should('have.class','form-control').type("Str. SpartanSoft nr 999")
-      //cy.get("#AccountFrm_address_2").should('have.class','form-control').type("Str Home 10000")
       cy.get("#AccountFrm_city").should('have.class','form-control').type("Suceava")
       cy.get("#AccountFrm_postcode").should('have.class','form-control').type("111222")
       cy.get("#AccountFrm_country_id").select("Romania").should("have.value","175")
@@ -541,7 +531,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Please select a country!")
      
-  
     })
 
   it('Must Select a Region/State', () => {
@@ -665,8 +654,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Login name must be alphanumeric only and between 5 and 64 characters!")
     })
@@ -698,9 +685,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
-      
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Login name must be alphanumeric only and between 5 and 64 characters!")
     })
 
@@ -731,8 +715,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("This login name is not available. Try different login name!")
       
@@ -765,8 +747,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Password must be between 4 and 20 characters!")
     })
@@ -798,8 +778,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Password must be between 4 and 20 characters!")
     })
@@ -831,8 +809,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
       cy.get("#maincontainer > div > div > div > div.alert.alert-error.alert-danger").should("be.visible").contains("Password confirmation does not match password!")
       
@@ -865,8 +841,6 @@ describe('Register Validation', () => {
       cy.get("#AccountFrm_agree").should("have.value",'1').type("check")
   
       cy.get("#AccountFrm > div.form-group > div > div > button").contains("Continue").click()
-  
-      //cy.get("#maincontainer > div > div.col-md-9.col-xs-12.mt20 > div > div > section > a").contains("Continue").click()
       
     })
 
