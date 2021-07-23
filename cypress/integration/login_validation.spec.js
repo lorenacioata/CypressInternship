@@ -1,5 +1,5 @@
 
-describe('Login Functionality', () => {
+describe('Login Validation Functionality', () => {
   beforeEach(() => {
     cy.visit('/')
   })
@@ -44,6 +44,8 @@ describe('Login Functionality', () => {
       cy.get("#loginFrm_loginname").should('have.class','form-control').type("janedoe2")
       cy.get("#loginFrm_password").should('have.class','form-control').type("testinternship")
       cy.get("#loginFrm > fieldset > button").click()
+
+      cy.get("#customer_menu_top > li > a > div").should("be.visible").contains("Welcome back Jenny")
       
     })
 })

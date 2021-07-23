@@ -29,12 +29,11 @@ describe('TASK4_Necessary Tests', () => {
         cy.contains("Twitter").should('have.attr', 'href',"https://twitter.com/").should('have.attr', 'target', '_blank')
         cy.log("A new tab with Twitter opens up")
         
-        cy.get("body > div > header > div.container-fluid > div > div.block_8 > div > div > a.linkedin").click()
-        
-        cy.contains("Linkedin").should('have.attr', 'href',"http://www.linkedin.com/").should('have.attr', 'target', '_blank')
-
-        cy.get("#main-content > section.section.section--hero > div.hero > h1").contains("Welcome to your professional community")
-
+        cy.request("https://uk.linkedin.com/").then((response)=>{
+            expect(response).to.have.property("status",200)
+            
+        })
+        cy.log("The LinkedIn returned status 200")
     })
 
     it('Contact Us Functionality -> invalid email address(w/out @)', () => {

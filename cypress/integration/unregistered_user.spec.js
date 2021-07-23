@@ -1,4 +1,4 @@
-describe('Register and Login Successfully', () => {
+describe('Unregistered User Functionality', () => {
     beforeEach(() => {
       cy.visit('/')
     })
