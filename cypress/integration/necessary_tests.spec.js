@@ -1,31 +1,32 @@
+import { Login, My_Tests } from "../support/POM/POM.spec.js"
 
-describe('TASK4_Necessary Tests', () => {
+describe('Necessary Tests POM', () => {
     beforeEach(() => {
-      cy.visit('https://automationteststore.com/')
+      Login.visit_page()
       
     })
    
     it('Change Currency Functionality', () => {
-        cy.get("body > div > header > div.container-fluid > div > div.block_6 > ul > li > ul > li:nth-child(1) > a").contains("€ Euro").click({force:true})
-        cy.get("#block_frame_featured_1769 > div > div:nth-child(1) > div.thumbnail > div.pricetag.jumbotron > div > div").contains("€")
+        My_Tests.EuroBtn().contains("€ Euro").click({force:true})
+        My_Tests.ShowEuro().contains("€")
         cy.log("The currency is now in €")
         
-        cy.get("body > div > header > div.container-fluid > div > div.block_6 > ul > li > ul > li:nth-child(2) > a").contains("£ Pound Sterling").click({force:true})
-        cy.get("#block_frame_featured_1769 > div > div:nth-child(1) > div.thumbnail > div.pricetag.jumbotron > div > div").contains("£")
+        My_Tests.PoundBtn().contains("£ Pound Sterling").click({force:true})
+        My_Tests.ShowPound().contains("£")
         cy.log("The currency is now in £")
 
-        cy.get("body > div > header > div.container-fluid > div > div.block_6 > ul > li > ul > li:nth-child(3) > a").contains("$ US Dollar").click({force:true})
-        cy.get("#block_frame_featured_1769 > div > div:nth-child(1) > div.thumbnail > div.pricetag.jumbotron > div > div").contains("$")
+        My_Tests.DollarBtn().contains("$ US Dollar").click({force:true})
+        My_Tests.ShowDollar().contains("$")
         cy.log("The currency is now in $")
     })
 
     it('Share on Social Media Functionality', () => {
         
-        cy.get("body > div > header > div.container-fluid > div > div.block_8 > div > div > a.facebook").click()
+        My_Tests.Share_FB().click()
         cy.contains('Facebook').should('have.attr', 'href', 'http://www.facebook.com').should('have.attr', 'target', '_blank')
         cy.log("A new tab with Facebook opens up")
 
-        cy.get("body > div > header > div.container-fluid > div > div.block_8 > div > div > a.twitter").click()
+        My_Tests.Share_Twitter().click()
         cy.contains("Twitter").should('have.attr', 'href',"https://twitter.com/").should('have.attr', 'target', '_blank')
         cy.log("A new tab with Twitter opens up")
         
@@ -38,65 +39,64 @@ describe('TASK4_Necessary Tests', () => {
 
     it('Contact Us Functionality -> invalid email address(w/out @)', () => {
         
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
-        cy.get("#ContactUsFrm_first_name").type("Lore")
-        cy.get("#ContactUsFrm_email").type("loregmail.com")
-        cy.get("#ContactUsFrm_enquiry").type("I have a problem with my checkout.")
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
-        cy.get("#field_12 > span > div.element_error.has-error").contains("E-Mail Address does not appear to be valid!")
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
+        My_Tests.ContactUs_FstName().type("Lore")
+        My_Tests.ContactUs_Email().type("loregmail.com")
+        My_Tests.ContactUs_Enquiry().type("I have a problem with my checkout.")
+        My_Tests.ContactUs_Send().click()
+        My_Tests.ContactUs_Error_Email().contains("E-Mail Address does not appear to be valid!")
 
     })
 
     it('Contact Us Functionality -> invalid email address(w/out .)', () => {
-        //there is a bug here because it works without . after gmail/yahoo etc and it should not
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
-        cy.get("#ContactUsFrm_first_name").type("Lore")
-        cy.get("#ContactUsFrm_email").type("lore@gmailcom")
-        cy.get("#ContactUsFrm_enquiry").type("I have a problem with my checkout.")
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
-        //cy.get("#field_12 > span > div.element_error.has-error").contains("E-Mail Address does not appear to be valid!") the test fails with this line
+        //there is a bug here because it works without "." after gmail/yahoo etc and it should not
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
+        My_Tests.ContactUs_FstName().type("Lore")
+        My_Tests.ContactUs_Email().type("lore@gmailcom")
+        My_Tests.ContactUs_Enquiry().type("I have a problem with my checkout.")
+        My_Tests.ContactUs_Send().click()
+        //My_Tests.ContactUs_Error_Email().contains("E-Mail Address does not appear to be valid!") !!!the test fails with this line
     })
 
 
     it('Contact Us Functionality -> Empty First name', () => {
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
         
-        cy.get("#ContactUsFrm_email").type("lore@gmailcom")
-        cy.get("#ContactUsFrm_enquiry").type("I have a problem with my checkout.")
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
+        My_Tests.ContactUs_Email().type("lore@gmail.com")
+        My_Tests.ContactUs_Enquiry().type("I have a problem with my checkout.")
+        My_Tests.ContactUs_Send().click()
 
-        cy.get("#field_11 > span > div.element_error.has-error").contains("First name: is required field! Name must be between 3 and 32 characters!")
+        My_Tests.ContactUs_Error_FstName().contains("First name: is required field! Name must be between 3 and 32 characters!")
     })
 
     it('Contact Us Functionality -> Empty Email Address', () => {
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
-        cy.get("#ContactUsFrm_first_name").type("Lore")
-        cy.get("#ContactUsFrm_enquiry").type("I have a problem with my checkout.")
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
+        My_Tests.ContactUs_FstName().type("Lore")
+        My_Tests.ContactUs_Enquiry().type("I have a problem with my checkout.")
+        My_Tests.ContactUs_Send().click()
 
-        cy.get("#field_12 > span > div.element_error.has-error").contains("Email: is required field! E-Mail Address does not appear to be valid!")
+        My_Tests.ContactUs_Error_Email().contains("Email: is required field! E-Mail Address does not appear to be valid!")
     })
 
     it('Contact Us Functionality -> Empty Enquiry', () => {
         
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
-        cy.get("#ContactUsFrm_first_name").type("Lore")
-        cy.get("#ContactUsFrm_email").type("lore@gmail.com")
-
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
-        cy.get("#field_13 > span > div.element_error.has-error").contains("Enquiry: is required field! Enquiry must be between 10 and 3000 characters!")
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
+        My_Tests.ContactUs_FstName().type("Lore")
+        My_Tests.ContactUs_Email().type("lore@gmail.com")
+        My_Tests.ContactUs_Send().click()
+        My_Tests.ContactUs_Error_Enquiry().contains("Enquiry: is required field! Enquiry must be between 10 and 3000 characters!")
 
     })
 
     it('Contact Us Functionality -> valid data ', () => {
         
-        cy.get("#footer > footer > section.footerlinks > div > div.pull-left > div > ul > li:nth-child(5) > a").contains("Contact Us").click()
-        cy.get("#ContactUsFrm_first_name").type("Lore")
-        cy.get("#ContactUsFrm_email").type("lore@gmail.com")
-        cy.get("#ContactUsFrm_enquiry").type("I have a problem with my checkout.")
-        cy.get("#ContactUsFrm > div.form-group > div.col-md-6.col-sm-6 > button").click()
-        cy.get("#maincontainer > div > div > div > div > section > p:nth-child(3)").contains("Your enquiry has been successfully sent to the store owner!")
-        cy.get("#maincontainer > div > div > div > div > section > a").contains("Continue").click()
+        My_Tests.ContactUsBtn().contains("Contact Us").click()
+        My_Tests.ContactUs_FstName().type("Lore")
+        My_Tests.ContactUs_Email().type("lore@gmail.com")
+        My_Tests.ContactUs_Enquiry().type("I have a problem with my checkout.")
+        My_Tests.ContactUs_Send().click()
+        My_Tests.ContactUs_Successful().contains("Your enquiry has been successfully sent to the store owner!")
+        My_Tests.ContactUs_Continue().contains("Continue").click()
 
     })
 })

@@ -22,7 +22,6 @@ describe('Unregistered User Functionality', () => {
         cy.get("#maincontainer > div > div > div > div > ul > li:nth-child(3) > a > img").click()
         cy.get("#maincontainer > div > div > div > div > div.thumbnails.grid.row.list-inline > div:nth-child(3) > div.thumbnail > div.pricetag.jumbotron > a > i").click()
         cy.get("body > div > header > div.container-fluid > div > div.block_7 > ul > li > a > span.cart_total").click()
-        //cy.get("")
         })
     
     it('Finalize a Purchase Functionality', () => {

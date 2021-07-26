@@ -1,5 +1,3 @@
-//const { it } = require("mocha")
-
 
 describe('TASK2_Registered_Customers', () => {
     beforeEach(() => {

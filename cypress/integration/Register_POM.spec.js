@@ -1,4 +1,4 @@
-import { Login, Register } from "./POM.spec"
+import { Login, Register } from "../support/POM/POM.spec.js"
 
 describe('Register POM Functionality', () => {
     beforeEach(() => {

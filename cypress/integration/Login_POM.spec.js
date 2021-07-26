@@ -1,4 +1,4 @@
-import {Login} from "./POM.spec.js"
+import {Login} from "../support/POM/POM.spec.js"
 
 describe('Login POM Functionality', () => {
     beforeEach(() => {
